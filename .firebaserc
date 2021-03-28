@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "oauth2-510c6": {
+      "hosting": {
+        "app-soa": [
+          "oauth2-510c6"
+        ]
+      }
+    }
+  }
+}
