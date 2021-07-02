@@ -385,6 +385,32 @@
         <path id="Path_19" data-name="Path 19" d="M4137.529,1027.283l-7.7-3.723,4.417-2.721,7.753,3.723Z" transform="translate(-4125.003 -1015.199)" fill="#fff"/>
       </svg>
     </a>
+
+    <a class="circle-link" title="Microsoft" href="javascript:void(0)" (click)="loginOAuth2('Microsoft')"  rel="noopener">
+      <svg alt="Angular Protractor Logo" xmlns="http://www.w3.org/2000/svg" width="21.813" height="23.453" viewBox="0 0 21.813 23.453">
+        <g id="Group_26" data-name="Group 26" transform="translate(0)">
+          <path id="Path_28" data-name="Path 28" d="M4620.155,311.417h0l-10.881,3.9,1.637,14.4,9.244,5.152,9.244-5.152,1.685-14.4Z" transform="translate(-4609.274 -311.417)" fill="#e13439"/>
+          <path id="Path_29" data-name="Path 29" d="M4702.088,311.417v23.447l9.244-5.152,1.685-14.4Z" transform="translate(-4691.207 -311.417)" fill="#b52f32"/>
+          <path id="Path_30" data-name="Path 30" d="M4651.044,369.58v-.421h1.483a7.6,7.6,0,0,0-2.106-5.052l-1.123,1.123-.3-.3,1.122-1.121a7.588,7.588,0,0,0-4.946-2.055v1.482h-.421v-1.485a7.589,7.589,0,0,0-5.051,2.058l1.122,1.121-.3.3-1.123-1.123a7.591,7.591,0,0,0-2.106,5.052h1.482v.421h-1.489v1.734h15.241V369.58Zm-10.966-.263a4.835,4.835,0,0,1,9.67,0Z" transform="translate(-4634.008 -355.852)" fill="#fff"/>
+        </g>
+      </svg>
+    </a>
+
+    <a class="circle-link" title="Yahoo" href="javascript:void(0)" (click)="loginOAuth2('Yahoo')" rel="noopener">
+      <svg alt="Gitter Logo" xmlns="http://www.w3.org/2000/svg" width="19.447" height="19.447" viewBox="0 0 19.447 19.447">
+        <g id="Group_40" data-name="Group 40" transform="translate(-1612 -405)">
+          <rect id="Rectangle_19" data-name="Rectangle 19" width="19.447" height="19.447" transform="translate(1612 405)" fill="#e60257"/>
+          <g id="gitter" transform="translate(1617.795 408.636)">
+            <g id="Group_33" data-name="Group 33" transform="translate(0 0)">
+              <rect id="Rectangle_15" data-name="Rectangle 15" width="1.04" height="9.601" transform="translate(2.304 2.324)" fill="#fff"/>
+              <rect id="Rectangle_16" data-name="Rectangle 16" width="1.04" height="9.601" transform="translate(4.607 2.324)" fill="#fff"/>
+              <rect id="Rectangle_17" data-name="Rectangle 17" width="1.04" height="4.648" transform="translate(6.91 2.324)" fill="#fff"/>
+              <rect id="Rectangle_18" data-name="Rectangle 18" width="1.04" height="6.971" transform="translate(0 0)" fill="#fff"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </a>
   </div>
 
   <p>What do you want to do next with your app?</p>
@@ -401,7 +427,19 @@
   <!-- Terminal -->
   <div class="terminal" [ngSwitch]="selection.value">
     <div *ngFor="let item of listaUsuarios">
-      <pre *ngSwitchCase="item.email">{{item.email}}</pre>
+      <p>
+
+      </p>
+      <pre *ngSwitchCase="item.email"><b>{{item.email}}:</b></pre>
+      <p *ngSwitchCase="item.nombreCompleto">{{item.fullName}}</p>
+    </div>
+  </div>
+
+  <div >
+    <div *ngFor="let item of listaUsuarios">
+      <p>
+        <b>{{item.email}}:</b> {{item.fullName}}
+      </p>
     </div>
   </div>
 

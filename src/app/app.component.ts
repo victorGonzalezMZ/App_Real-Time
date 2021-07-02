@@ -17,8 +17,17 @@ export class AppComponent {
   listaUsuarios: any[] = [];
 
   constructor(public socket: SocketioService, private authSvc: AuthService) {
-    this.suscription$ = this.socket.on('broadcast-message').subscribe((usersList: any) => {
-      this.listaUsuarios = usersList;
+    this.suscription$ = this.socket.on('returnUserSignIn').subscribe((user: any) => {
+      this.socket.emit('passwordSetup', {
+        email: user.correo,
+        password: '123Ejemplo',
+        apiKey: environment.API_KEY
+      });
+    });
+
+    this.suscription$ = this.socket.on('finishSignIn').subscribe((result: any) => {
+      console.log(result[0].user);
+      console.log(result[0].token.token);
     });
   }
 
@@ -27,7 +36,6 @@ export class AppComponent {
   }
 
   loginOAuth2(provider: string) {
-    console.log('Provider: ', provider);
     this.authSvc.loginOAuth2(provider)
     .then((user: any) => {
       this.socket.emit('signUp', {

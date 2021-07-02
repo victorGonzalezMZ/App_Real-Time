@@ -26,12 +26,17 @@ export class AuthService {
         break;
       case 'Microsoft':
         oauth2 = new firebase.auth.OAuthProvider('microsoft.com');
+        oauth2.setCustomParameters({prompt: 'select_account'});
         break;
       case 'Apple':
         oauth2 = new firebase.auth.OAuthProvider('apple.com');
         break;
       case 'Yahoo':
         oauth2 = new firebase.auth.OAuthProvider('yahoo.com');
+        oauth2.setCustomParameters({prompt: 'login'});
+        oauth2.addScope('email');
+        oauth2.addScope('profile');
+        //oauth2.addScope('sdct-r');
         break;
       case 'Facebook':
         oauth2 = new firebase.auth.FacebookAuthProvider();
@@ -53,6 +58,6 @@ export class AuthService {
         error
       }
     });
-  }
+  }​​​​​​​​
 
 }
